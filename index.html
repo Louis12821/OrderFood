@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>好食點餐 · OrderFood</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#">
+        <span class="brand-logo">🍜</span>
+        <span class="brand-name">好食點餐</span>
+      </a>
+      <nav class="nav">
+        <a href="#menu">菜單</a>
+        <a href="#about">關於我們</a>
+        <a href="#contact">聯絡我們</a>
+      </nav>
+      <button class="cart-toggle" id="cartToggle" aria-label="購物車">
+        🛒 <span class="cart-count" id="cartCount">0</span>
+      </button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <h1>新鮮現做，<br />送到你家門口</h1>
+        <p>嚴選在地食材，從廚房到餐桌只要 30 分鐘。立即選購你喜愛的美食。</p>
+        <a class="btn btn-primary" href="#menu">立即點餐</a>
+      </div>
+      <div class="hero-card">
+        <div class="hero-emoji">🍱</div>
+        <p class="hero-card-text">本日推薦 · 免運門檻 $300</p>
+      </div>
+    </div>
+  </section>
+
+  <main class="container">
+    <section id="menu" class="menu-section">
+      <h2 class="section-title">精選菜單</h2>
+      <div class="category-tabs" id="categoryTabs"></div>
+      <div class="menu-grid" id="menuGrid"></div>
+    </section>
+
+    <section id="about" class="info-section">
+      <h2 class="section-title">關於我們</h2>
+      <p>好食點餐成立於 2024 年，致力於用最新鮮的食材，為每一位顧客提供安心又美味的餐點。我們與在地小農合作，堅持當日採購、現點現做。</p>
+    </section>
+
+    <section id="contact" class="info-section">
+      <h2 class="section-title">聯絡我們</h2>
+      <p>電話：0800-123-456　|　Email：hello@orderfood.example　|　營業時間：每日 10:00 - 22:00</p>
+    </section>
+  </main>
+
+  <!-- 購物車側邊欄 -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <aside class="cart-panel" id="cartPanel" aria-label="購物車">
+    <div class="cart-header">
+      <h3>你的購物車</h3>
+      <button class="cart-close" id="cartClose" aria-label="關閉">✕</button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-footer">
+      <div class="cart-total-row">
+        <span>總計</span>
+        <span id="cartTotal">$0</span>
+      </div>
+      <button class="btn btn-primary btn-block" id="checkoutBtn">前往結帳</button>
+    </div>
+  </aside>
+
+  <!-- 結帳對話框 -->
+  <div class="modal-overlay" id="checkoutModal">
+    <div class="modal">
+      <h3>確認訂單</h3>
+      <form id="checkoutForm">
+        <label>姓名 <input type="text" name="name" required /></label>
+        <label>電話 <input type="tel" name="phone" required /></label>
+        <label>外送地址 <input type="text" name="address" required /></label>
+        <label>備註 <textarea name="note" rows="2"></textarea></label>
+        <div class="modal-total">應付金額：<strong id="modalTotal">$0</strong></div>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-ghost" id="checkoutCancel">返回</button>
+          <button type="submit" class="btn btn-primary">送出訂單</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2024 好食點餐 OrderFood · 用心做好每一餐</p>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="menu-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
